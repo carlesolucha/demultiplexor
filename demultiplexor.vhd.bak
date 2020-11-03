@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity demultiplexor is
+	port(
+	E  : in std_logic;
+	c0 : in std_logic;
+	c1 : in std_logic;
+	s0 : out std_logic;
+	s1 : out std_logic;
+	s2 : out std_logic;
+	s3 : out std_logic);
+entity demultiplexor;
+
+architecture behavioral of demultiplexor is
+begin
+	--1) una manera de hacer lo es así:
+	s0 <= E and (not (c1) and not(c0));
+	s1 <= E and (not(c1) and c0);
+	s2 <= E and (c1 and not(c0));
+	s3 <= E and (c1 and c0);
+end behavioral;

@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity demultiplexor2 is
+	port(
+	c  : out std_logic_vector(1 downto 0);
+	s  : out std_logic_vector(3 downto 0));
+end demultiplexor2;
+
+architecture behavioral of demultiplexor2;
+begin
+	with c select
+	s<= 	"0001" when "00",
+			"0010" when "01",
+			"0100" when "10",
+			"1000" when "11",
+			"0000" when others;
+end demultiplexor2;
